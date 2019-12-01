@@ -38,11 +38,20 @@ namespace Day1_01
             for(int i=0; i<numArray.Length; i++)
             {
                 result += numArray[i];
+                if(numArray[i]>0)
+                {
+                    while(numArray[i]>0)
+                    {
+                        numArray[i] = Calc(numArray[i]);
+                        result += numArray[i];
+                    }
+                }
                 
             }
 
             Console.WriteLine("The amount of fuel needed is: " + result);
 
+            Console.WriteLine(Calc(2));
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
 
@@ -55,18 +64,17 @@ namespace Day1_01
             
             int firstNum = num / 3;
             int secondNum = firstNum - 2;
-            return secondNum;
+            if (secondNum > 0)
+            {
+                return secondNum;
+            }else
+            {
+                return 0;
+            }
+            
+            
         }
-
-        static int Divide(int num)
-        {
-            return num / 3;
-        }
-
-        static int Minus(int num)
-        {
-            return num - 2;
-        }
+        
 
     }
 }
